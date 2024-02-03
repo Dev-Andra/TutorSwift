@@ -1,6 +1,6 @@
 import { Outlet, useNavigate } from "react-router-dom"
 
-export default function NavigationMain() {
+export default function Contact() {
     const navigate = useNavigate();
 
     return (
