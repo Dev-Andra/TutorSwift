@@ -10,7 +10,6 @@ export default function NavigationMain() {
                     <h2 className="text-2xl mr-10 cursor-pointer hover:text-blue-500 transition-colors duration-500 ease-in-out">Subjects</h2>
                     <h2 className="text-2xl mr-10 cursor-pointer hover:text-blue-500 transition-colors duration-500 ease-in-out">About</h2>
                     <h2 className="text-2xl mr-10 cursor-pointer hover:text-blue-500 transition-colors duration-500 ease-in-out">Contact</h2>
-                    <input className="border-2 border-black rounded-md focus:outline-none px-3 py-1 text-lg placeholder:text-gray-500" placeholder="Search"></input>
                 </div>
                 <button className="px-3 py-1.5 bg-green-400 text-xl rounded-lg font-semibold cursor-pointer hover:bg-green-200 transition-color duration-500 ease-in-out mr-3">Register</button>
                 <button className="px-3 py-1.5 border-green-400 border-2 text-xl rounded-lg font-semibold cursor-pointer hover:bg-green-200 transition-color duration-500 ease-in-out mr-3">Login</button>
