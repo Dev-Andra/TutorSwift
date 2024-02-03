@@ -11,6 +11,7 @@ conn.commit()
 def addTopic(topic:str, budget:int, name:str, username:str):
     cursor.execute("INSERT INTO topics (topic, budget, name, username) VALUES (?, ?, ?, ?)", (topic, budget, name, username, ))
     conn.commit()
+    return 200
 
-addTopic("math", 123, "jeffrey bezos", "jefboz")
+addTopic("Valorant Coaching", 30, "Tenz", "SenTenz")
 
