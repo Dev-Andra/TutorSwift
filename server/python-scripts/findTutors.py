@@ -7,7 +7,7 @@ conn = sqlite3.connect("topics.db")
 
 cursor = conn.cursor()
 
-cursor.execute("""CREATE TABLE IF NOT EXISTS topics (topic TEXT, budget INT, name TEXT, username TEXT)""")
+cursor.execute("""CREATE TABLE IF NOT EXISTS topics (topic TEXT, budget INT, name TEXT, username TEXT, profilePic TEXT)""")
 conn.commit()
 
 def findTutors():
@@ -16,4 +16,4 @@ def findTutors():
     return tutors
 
 tutors_array = findTutors()
-print([list(row) for row in tutors_array])
+print(tutors_array)
