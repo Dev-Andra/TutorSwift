@@ -33,6 +33,14 @@ app.get("/verify-email/:recipient", function (req, res, next) {
     });
 });
 
+app.get("/tutors/collect", function (req, res, next) {
+    const tutorPyProcess = spawn('python', ['./python-scripts/findTutors.py']);
+});
+
+app.post("/auth/login", function (req, res, next) {
+    const emailUsername = req.body.emailUsername;
+    
+});
 
 server.listen(process.env.SERVER_PORT || 5000, () => {
     console.log("Server listening on port:", process.env.SERVER_PORT || 5000);
