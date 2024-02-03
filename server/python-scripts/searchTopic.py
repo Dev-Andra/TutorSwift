@@ -10,7 +10,7 @@ cursor = conn.cursor()
 cursor.execute("""CREATE TABLE IF NOT EXISTS topics (topic TEXT, budget INT, name TEXT, username TEXT)""")
 conn.commit()
 
-def searchTopic(topic, budget):
+def searchTopic(topic:str, budget:str):
     cursor.execute("SELECT * FROM topics WHERE topic = '{}' AND budget < {}".format(topic, budget))
     list = cursor.fetchall()
     return list

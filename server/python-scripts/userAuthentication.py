@@ -10,8 +10,8 @@ cursor = conn.cursor()
 cursor.execute("""CREATE TABLE IF NOT EXISTS accounts (username TEXT, password INT, email TEXT, role TEXT)""")
 conn.commit()
 
-def findAccount(username, password):
-    cursor.execute("SELECT * FROM accounts WHERE username = '{}' AND password = '{}'".format(username, password))
+def findAccount(username:str, password:str):
+    cursor.execute("SELECT * FROM accounts WHERE username = '{user}' OR email = '{user}' AND password = '{}'".format(password, user=username))
     account = cursor.fetchall()
     if account == []:
         return 401
