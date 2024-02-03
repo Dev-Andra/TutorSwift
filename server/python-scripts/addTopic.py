@@ -15,4 +15,5 @@ def addTopic(topic:str, budget:int, name:str, username:str):
     conn.commit()
     return 200
 
-addTopic("Language Arts", 30, "Smth", "smth")
+addTopic("math", 123, "jeffrey bezos", "jefboz")
+
