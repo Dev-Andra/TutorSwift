@@ -38,8 +38,20 @@ app.get("/tutors/collect", function (req, res, next) {
 
     tutorPyProcess.stdout.on('data', (data) => {
         // Remove surrounding brackets and split by comma followed by a space
-        const tutors = data.toString();
-        res.status(200).json(tutors);
+        const tutorsString = data.toString(); // Convert Buffer to string
+        console.log(tutorsString)
+
+        // Remove brackets and split the string into tuples
+        const tuplesArray = tutorsString.slice(1, -1).split('),(');
+
+        // Map over each tuple string and convert it into an array of values
+        const arrayOfTuples = tuplesArray.map(tupleString => {
+            // Remove surrounding parentheses and split by comma
+            return tupleString.slice(1, -1).split(', ');
+        });
+
+        res.status(200).json(arrayOfTuples); // Send the array of tuples as JSON response
+
     });
 
     tutorPyProcess.stderr.on('data', (data) => {
@@ -50,6 +62,12 @@ app.get("/tutors/collect", function (req, res, next) {
         console.log("Python process closed with code:", code);
     })
 });
+
+app.get('/tutors/status/:tutorUsername', function (req, res, next) {
+    const tutorUsername = req.params.tutorUsername;
+
+    const findStatusPyProcess = spawn('python')
+})
 
 app.post("/auth/login", function (req, res, next) {
     const emailUsername = req.body.emailUsername;

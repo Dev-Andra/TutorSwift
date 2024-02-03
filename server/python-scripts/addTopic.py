@@ -2,7 +2,7 @@ import sqlite3
 import os
 import profilePicture
 
-os.chdir(r"C:\Users\devpa\Desktop\TutorSwift-1\server")
+os.chdir(r"C:\Users\nikrp\Documents\TutorSwift\server")
 conn = sqlite3.connect("topics.db")
 
 cursor = conn.cursor()
@@ -15,5 +15,4 @@ def addTopic(topic:str, budget:int, name:str, username:str):
     conn.commit()
     return 200
 
-addTopic("math", 123, "jeffrey bezos", "jefboz")
-
+addTopic("Language Arts", 30, "Smth", "smth")
