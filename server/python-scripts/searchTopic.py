@@ -2,6 +2,7 @@ import sqlite3
 import os
 
 os.chdir(r"C:\Users\panda\tutorswift-1\server")
+
 conn = sqlite3.connect("topics.db")
 
 cursor = conn.cursor()
