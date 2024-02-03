@@ -1,30 +1,15 @@
 import sqlite3
 import os
 
-os.chdir(r"C:\Users\nikrp\Documents\TutorSwift\server")
+os.chdir(r"C:\Users\panda\tutorswift-1\server")
 conn = sqlite3.connect("topics.db")
 
 cursor = conn.cursor()
 
-# create a table
-cursor.execute("""CREATE TABLE IF NOT EXISTS topics (topic TEXT, budget INT, name TEXT, id TEXT)""")
+cursor.execute("""CREATE TABLE IF NOT EXISTS topics (topic TEXT, budget INT, name TEXT, username TEXT)""")
 conn.commit()
 
 def searchTopic(topic, budget):
-    cursor.execute("SELECT * FROM topics WHERE topic = 'math' AND budget < 50")
+    cursor.execute("SELECT * FROM topics WHERE topic = '{}' AND budget < {}".format(topic, budget))
     list = cursor.fetchall()
     return list
-
-# cursor.execute("SELECT * FROM topics")
-
-# print(cursor.fetchall())
-
-results = searchTopic("math", 50)
-print(results)
-
-# cursor.execute("SELECT * FROM topics")
-
-# print(cursor.fetchall())
-
-# cursor.executemany("INSERT INTO topics (topic, budget, name) VALUES (?, ?, ?)", [("math", 15.99, "jimmy"), ("math", 80, "bob"), ("math", 20, "hello"), ("language arts", 10, "somebody")])
-# conn.commit()

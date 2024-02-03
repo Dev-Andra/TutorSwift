@@ -23,7 +23,6 @@ def emailVerification(email:str):
     </body>
     </html>
     """
-    
     msg = MIMEText(html_message, 'html')  # Set the message type to HTML
     msg["Subject"] = "Verify your TutorSwift email address"
     msg["From"] = EMAIL

@@ -1,26 +1,16 @@
 import sqlite3
 import os
 
-os.chdir(r"C:\Users\panda\hackathon\server")
-conn = sqlite3.connect("userAccounts.db")
+os.chdir(r"C:\Users\panda\tutorswift-1\server")
+conn = sqlite3.connect("topics.db")
 
 cursor = conn.cursor()
-
-# create a table
-cursor.execute("""CREATE TABLE IF NOT EXISTS topics (topic TEXT, budget INT, name TEXT, id TEXT)""")
+cursor.execute("""CREATE TABLE IF NOT EXISTS topics (topic TEXT, budget INT, name TEXT, username TEXT)""")
 conn.commit()
 
-def registerAccount(username, password, email, role):
-    cursor.execute("INSERT INTO accounts (username, password, email, role) VALUES (?, ?, ?, ?)", (username, password, email, role, ))
+def addTopic(topic, budget, name, id):
+    cursor.execute("INSERT INTO topics (topic, budget, name, username) VALUES (?, ?, ?, ?)", (topic, budget, name, id, ))
     conn.commit()
 
 
-cursor.execute("SELECT * FROM accounts")
-
-print(cursor.fetchall())
-
-registerAccount("billybobjoe1234", "bob1234", "bobbbybobbo", "tutor")
-
-cursor.execute("SELECT * FROM accounts")
-
-print(cursor.fetchall())
+addTopic("physics", 130, "Nikhil Pellakuru", "nrp")
