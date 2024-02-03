@@ -2,15 +2,17 @@ import sqlite3
 import os
 
 os.chdir(r"C:\Users\devpa\Desktop\TutorSwift-1\server")
+
 conn = sqlite3.connect("topics.db")
 
 cursor = conn.cursor()
+
 cursor.execute("""CREATE TABLE IF NOT EXISTS topics (topic TEXT, budget INT, name TEXT, username TEXT)""")
 conn.commit()
 
-def addTopic(topic, budget, name, username):
-    cursor.execute("INSERT INTO topics (topic, budget, name, username) VALUES (?, ?, ?, ?)", (topic, budget, name, username, ))
-    conn.commit()
+def findTutors():
+    cursor.execute("SELECT * FROM topics")
+    tutors = cursor.fetchall()
+    return tutors
 
-addTopic("math", 123, "jeffrey bezos", "jefboz")
-
+print(findTutors())
