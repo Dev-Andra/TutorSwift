@@ -1,7 +1,7 @@
 import sqlite3
 import os
 
-os.chdir(r"C:\Users\nikrp\Documents\TutorSwift\server")
+os.chdir(r"D:\nik-documents\github\TutorSwift\server")
 conn = sqlite3.connect("topics.db")
 
 cursor = conn.cursor()
