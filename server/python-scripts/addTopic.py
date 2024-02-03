@@ -1,7 +1,7 @@
 import sqlite3
 import os
 
-os.chdir(r"C:\Users\devpa\Desktop\TutorSwift-1\server")
+os.chdir(r"C:\Users\nikrp\Documents\TutorSwift\server")
 conn = sqlite3.connect("topics.db")
 
 cursor = conn.cursor()
@@ -12,5 +12,5 @@ def addTopic(topic:str, budget:int, name:str, username:str):
     cursor.execute("INSERT INTO topics (topic, budget, name, username) VALUES (?, ?, ?, ?)", (topic, budget, name, username, ))
     conn.commit()
 
-addTopic("math", 123, "jeffrey bezos", "jefboz")
+addTopic("mawth", 123, "jeffrey bezos", "jefboz")
 

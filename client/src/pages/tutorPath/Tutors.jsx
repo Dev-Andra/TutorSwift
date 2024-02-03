@@ -29,7 +29,7 @@ export default function Tutors() {
             {location.pathname === '/tutors' ? (
                 <div className="w-screen mt-20">
                     <input placeholder="Search for A Tutor" name="tutorSearch" value={tutorSearch} onChange={(e) => setTutorSearch(e.target.value)} className="w-5/6 border-2 focus:outline-none ml-40 px-10 py-3 text-xl rounded-md border-gray-500 bg-gray-100 bg-no-repeat bg-right-10" />
-                    <div className="flex justify-center">
+                    <div className="flex justify-center flex-col items-center">
                         {tutors && tutors.map((tutor, index) => {
                             tutor = tutor.split(",")
                             return (
