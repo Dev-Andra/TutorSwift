@@ -4,9 +4,9 @@ export default function NavigationMain() {
     const navigate = useNavigate();
 
     return (
-        <div className="w-screen">
+        <div className="w-screen h-1/6">
             <div className="flex flex-row w-4/6 mx-auto px-10 py-5 2xl:w-4/6 xl:w-4/6 l:w-4/6 md:w-5/6 sm:w-screen items-center">
-            <h1 className={`text-3xl font-bold mr-auto text-green-500 hover:opacity-80 cursor-pointer`} onClick={() => navigate('/')}>Tutor<span className="text-steel-blue">Swift</span></h1>
+            <h1 className={`text-4xl font-bold mr-auto text-green-500 hover:opacity-80 cursor-pointer`} onClick={() => navigate('/')}>Tutor<span className="text-steel-blue">Swift</span></h1>
                 <div className="mr-auto flex flex-row">
                     <h2 className="text-2xl mr-10 cursor-pointer hover:text-blue-500 transition-colors duration-500 ease-in-out" onClick={() => {navigate('/tutors')}}>Tutors</h2>
                     <h2 className="text-2xl mr-10 cursor-pointer hover:text-blue-500 transition-colors duration-500 ease-in-out">Subjects</h2>
