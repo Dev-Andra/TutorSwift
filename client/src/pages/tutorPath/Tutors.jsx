@@ -32,6 +32,7 @@ export default function Tutors() {
                     const tutorUsername = tutor[3].trim().substring(1, tutor[2].length - 1);
                     const response = await axios.get(`http://localhost:5000/tutors/status/${tutorUsername}`);
                     const status = response.data.split(", '")[1] === 'online' ? 'online' : 'offline';
+                    const response2 = await axios.get( `'http://localhost:5000/tutors/email/${tutorUsername}`);
                     return { ...tutor, status };
                 }));
                 setTutors(updatedTutors);

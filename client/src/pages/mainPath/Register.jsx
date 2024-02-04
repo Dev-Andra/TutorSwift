@@ -24,14 +24,20 @@ export default function Register() {
     };
 
     return (
-        <div>
-                <label htmlFor="username">Username</label><br/>
-                <input type="text" id="username" name="username" value={formData.username} onChange={(e) => {setFormData({...formData, [e.target.name]:e.target.value})}}/><br/>
-                <label htmlFor="password">Password</label><br/>
-                <input type="text" id="password" name="password" value={formData.password} onChange={(e) => {setFormData({...formData, [e.target.name]:e.target.value})}}/><br/>
-                <label htmlFor="email">Email</label><br/>
-                <input type="text" id="email" name="email" value={formData.email} onChange={(e) => {setFormData({...formData, [e.target.name]:e.target.value})}}/><br/>
-                <button className={`bg-blue-500 rounded-md px-10 py-5 cursor-pointer`} onClick={() => handleSubmit()}>Register</button>
+        <div className='w-screen flex justify-center items-center flex-col '>
+            <div>
+                <label htmlFor="username" className='text-lg font-semibold'>Username</label><br/>
+                <input className={`px-5 py-2 text-xl focus:outline-none border-2 rounded-md border-gray-500`} type="text" id="username" name="username" value={formData.username} onChange={(e) => {setFormData({...formData, [e.target.name]:e.target.value})}}/><br/>
+            </div>
+            <div>
+                <label htmlFor="password" className='text-lg font-semibold'>Password</label><br/>
+                <input className={`px-5 py-2 text-xl focus:outline-none border-2 rounded-md border-gray-500`} type="text" id="password" name="password" value={formData.password} onChange={(e) => {setFormData({...formData, [e.target.name]:e.target.value})}}/><br/>
+            </div>
+            <div className='mb-10'>
+                <label htmlFor="email" className='text-lg font-semibold'>Email</label><br/>
+                <input className={`px-5 py-2 text-xl focus:outline-none border-2 rounded-md border-gray-500`} type="text" id="email" name="email" value={formData.email} onChange={(e) => {setFormData({...formData, [e.target.name]:e.target.value})}}/><br/>
+            </div>
+                <button className={`bg-blue-500 rounded-md px-10 py-5 cursor-pointer text-2xl font-semibold`} onClick={() => handleSubmit()}>Register</button>
         </div>
     )
 }

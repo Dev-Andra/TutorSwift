@@ -37,7 +37,6 @@ def getStatus(username:str):
 # print(cursor.fetchall())
 
 daStatus = None
-print(sys.argv[1], sys.argv[2])
 if (sys.argv[1] == 'getStatus'):
     daStatus = getStatus(sys.argv[2])
 else:
