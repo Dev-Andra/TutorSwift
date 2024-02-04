@@ -1,7 +1,7 @@
 import sqlite3
 import os
 
-os.chdir(r"C:\Users\devpa\Desktop\TutorSwift-1\server")
+os.chdir(r"C:\Users\nikrp\Documents\TutorSwift\server")
 conn = sqlite3.connect("about.db")
 
 cursor = conn.cursor()
@@ -9,7 +9,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS about (info TEXT, about TEXT, educa
 conn.commit()
 
 def addInfo(timezone:str, info:str, about:str, topic:str, education:str, name:str, username:str):
-    cursor.execute("INSERT INTO about (timezone, info, about, topic, education, name, username) VALUES (?, ?, ?, ?, ?, ?, ?)", (timezone, info, about, topic, name, username, ))
+    cursor.execute("INSERT INTO about (timezone, info, about, topic, education, name, username) VALUES (?, ?, ?, ?, ?, ?, ?)", (timezone, info, about, topic, education, name, username, ))
     conn.commit()
 
 

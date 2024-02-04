@@ -8,7 +8,6 @@ cursor = conn.cursor()
 
 def getEmail(username:str):
     cursor.execute(f"SELECT * FROM accounts WHERE username = '{username}'")
-    print('hi')
     status = cursor.fetchall()
     return status
 

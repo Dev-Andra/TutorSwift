@@ -84,18 +84,17 @@ app.get('/tutors/status/:tutorUsername', function (req, res, next) {
 app.get('/tutors/email/:tutorUsername', function (req, res, next) {
     const tutorUsername = req.params.tutorUsername;
 
-    const findStatusPyProcess = spawn('python', ['./python-scripts/getEmail.py', tutorUsername]);
+    const findStatusPyProcess1 = spawn('python', ['./python-scripts/getEmail.py', tutorUsername]);
 
-    findStatusPyProcess.stdout.on('data', (data) => {
-        console.log(data.toString());
+    findStatusPyProcess1.stdout.on('data', (data) => {
         res.status(200).send(data.toString().substring(5, data.toString().length - 5));
     });
 
-    findStatusPyProcess.stderr.on('data', (data) => {
+    findStatusPyProcess1.stderr.on('data', (data) => {
         console.error("Error:", data.toString());
     })
 
-    findStatusPyProcess.on('close', (code) => {
+    findStatusPyProcess1.on('close', (code) => {
         console.log("Python process closed with code:", code);
     })
 });

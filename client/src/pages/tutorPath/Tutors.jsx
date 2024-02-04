@@ -32,8 +32,10 @@ export default function Tutors() {
                     const tutorUsername = tutor[3].trim().substring(1, tutor[2].length - 1);
                     const response = await axios.get(`http://localhost:5000/tutors/status/${tutorUsername}`);
                     const status = response.data.split(", '")[1] === 'online' ? 'online' : 'offline';
-                    const response2 = await axios.get( `'http://localhost:5000/tutors/email/${tutorUsername}`);
-                    return { ...tutor, status };
+                    const response2 = await axios.get( `http://localhost:5000/tutors/email/${tutorUsername}`);
+                    const email = response2.data.substring(2, response2.data.length - 2).split(', ')[2].substring(1, response2.data.substring(2, response2.data.length - 2).split(', ')[2].length - 1);
+                    console.log(response2.data.substring(2, response2.data.length - 2).split(', ')[2].substring(1, response2.data.substring(2, response2.data.length - 2).split(', ')[2].length - 1));
+                    return { ...tutor, status, email };
                 }));
                 setTutors(updatedTutors);
             }
@@ -66,8 +68,10 @@ export default function Tutors() {
                                             <h1 className={`text-2xl font-semibold ${!tutor.status ? 'mr-auto' : 'mr-2'}`}>{tutor[2].trim().substring(1, tutor[2].length - 1)}</h1>
                                             {tutor.status && <p className="mr-auto">{tutor.status == 'online' ? "🟢" : "🔴"}</p>}
                                             <p className="text-2xl font-bold">${tutor[1].trim()}</p>
+                                            
                                         </div>
-                                        <div className="px-5">{tutor[0].includes('(') ? tutor[0].substring(2, tutor[0].length - 1): tutor[0].substring(1, tutor[0].length - 1)}</div>
+                                        <div className="px-5 mb-10">{tutor[0].includes('(') ? tutor[0].substring(2, tutor[0].length - 1): tutor[0].substring(1, tutor[0].length - 1)}</div>
+                                        {tutor.email && <a href={`mailto:${tutor.email}`} className="px-5 py-2 bg-green-400 hover:bg-opacity-75 cursor-pointer text-xl border-none rounded-lg transition-all duration-500 ease-in-out">{tutor.email}</a>}
                                     </div>
                                 </div>
                             )
