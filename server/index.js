@@ -66,7 +66,21 @@ app.get("/tutors/collect", function (req, res, next) {
 app.get('/tutors/status/:tutorUsername', function (req, res, next) {
     const tutorUsername = req.params.tutorUsername;
 
-    const findStatusPyProcess = spawn('python')
+    const findStatusPyProcess = spawn('python', ['./python-scripts/status.py', 'getStatus', tutorUsername]);
+
+    findStatusPyProcess.stdout.on('data', (data) => {
+        console.log(data.toString());
+        console.log(data.toString().substring(3, data.toString().length - 5));
+        res.status(200).send(data.toString().substring(3, data.toString().length - 5));
+    });
+
+    findStatusPyProcess.stderr.on('data', (data) => {
+        console.error("Error:", data.toString());
+    })
+
+    findStatusPyProcess.on('close', (code) => {
+        console.log("Python process closed with code:", code);
+    })
 })
 
 app.post("/auth/login", function (req, res, next) {
