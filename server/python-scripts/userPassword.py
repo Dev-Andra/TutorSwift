@@ -17,6 +17,3 @@ def registerAccount(username:str, password:str, email:str, role:str):
 
 code = registerAccount(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
 print(code)
-
-cursor.execute("SELECT * FROM accounts")
-print(cursor.fetchall())

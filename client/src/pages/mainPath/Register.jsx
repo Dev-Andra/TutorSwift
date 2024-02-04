@@ -18,8 +18,8 @@ export default function Register() {
             },
         });
         // Here, you can handle the submission logic, like sending the data to a server or performing other actions.
-        if (response.data === "200") {
-            navigate('/register/verify-email', { replace: true });
+        if (response.data === 200) {
+            navigate('/register/verify-email', { replace: true, state: {email: formData.email} });
         }
     };
 
