@@ -2,7 +2,7 @@ import sqlite3
 import os
 import base64
 
-os.chdir(r"C:\Users\devpa\Desktop\TutorSwift-1\server")
+os.chdir(r"C:\Users\nikrp\Documents\TutorSwift\server")
 conn = sqlite3.connect("picture.db")
 
 cursor = conn.cursor()
@@ -20,3 +20,4 @@ def findPic(name:str):
     return list
 
 print(findPic('jefboz'))
+addPic("smth", "png")

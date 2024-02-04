@@ -2,7 +2,7 @@ import sqlite3
 import os
 import profilePicture
 
-os.chdir(r"C:\Users\devpa\Desktop\TutorSwift-1\server")
+os.chdir(r"C:\Users\nikrp\Documents\TutorSwift\server")
 conn = sqlite3.connect("topics.db")
 
 cursor = conn.cursor()
@@ -14,4 +14,6 @@ def addTopic(topic:str, budget:int, name:str, username:str):
     cursor.execute("INSERT INTO topics (topic, budget, name, username, profilePic) VALUES (?, ?, ?, ?, ?)", (topic, budget, name, username, ppp[0][0] + "." + ppp[0][1]))
     conn.commit()
     return 200
+
+addTopic("math", 123, "jeffrey bezos", "jefboz")
 
