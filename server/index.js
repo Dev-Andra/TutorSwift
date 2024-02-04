@@ -65,13 +65,10 @@ app.get("/tutors/collect", function (req, res, next) {
 
 app.get('/tutors/status/:tutorUsername', function (req, res, next) {
     const tutorUsername = req.params.tutorUsername;
-    console.log(tutorUsername)
 
     const findStatusPyProcess = spawn('python', ['./python-scripts/status.py', 'getStatus', tutorUsername]);
 
     findStatusPyProcess.stdout.on('data', (data) => {
-        console.log(data.toString());
-        console.log(data.toString().substring(5, data.toString().length - 5));
         res.status(200).send(data.toString().substring(5, data.toString().length - 5));
     });
 
@@ -86,13 +83,11 @@ app.get('/tutors/status/:tutorUsername', function (req, res, next) {
 
 app.get('/tutors/email/:tutorUsername', function (req, res, next) {
     const tutorUsername = req.params.tutorUsername;
-    console.log(tutorUsername)
 
     const findStatusPyProcess = spawn('python', ['./python-scripts/getEmail.py', tutorUsername]);
 
     findStatusPyProcess.stdout.on('data', (data) => {
         console.log(data.toString());
-        console.log(data.toString().substring(5, data.toString().length - 5));
         res.status(200).send(data.toString().substring(5, data.toString().length - 5));
     });
 
