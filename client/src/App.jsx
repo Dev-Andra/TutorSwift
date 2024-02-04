@@ -7,7 +7,6 @@ import Tutors from './pages/tutorPath/Tutors';
 import Subjects from './pages/subjectPath/Subjects';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import Chats from './pages/Chats';
 import VerifyEmail from './pages/VerifyEmail';
 
 function App() {
