@@ -84,9 +84,23 @@ app.get('/tutors/status/:tutorUsername', function (req, res, next) {
     })
 })
 
-app.post("/auth/login", function (req, res, next) {
-    const emailUsername = req.body.emailUsername;
-    const password = req.body.passwordEntered;
+app.post("/auth/register", function (req, res, next) {
+    const data = req.body.data;
+
+    const registerPyProcess = spawn('python', ['./python-scripts/userPassword.py', data.username, data.password, data.email, data.role]);
+
+    registerPyProcess.stdout.on('data', (data) => {
+        console.log(data.toString());
+        res.status(200).send(data.toString());
+    });
+
+    registerPyProcess.stderr.on('data', (data) => {
+        console.log("Error:", data.toString());
+    });
+
+    registerPyProcess.stdout.on('close', (code) => {
+        console.log("Pyhton process closed with code:", code);
+    });
 });
 
 server.listen(process.env.SERVER_PORT || 5000, () => {
