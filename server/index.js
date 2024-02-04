@@ -71,8 +71,8 @@ app.get('/tutors/status/:tutorUsername', function (req, res, next) {
 
     findStatusPyProcess.stdout.on('data', (data) => {
         console.log(data.toString());
-        console.log(data.toString().substring(3, data.toString().length - 5));
-        res.status(200).send(data.toString().substring(3, data.toString().length - 5));
+        console.log(data.toString().substring(5, data.toString().length - 5));
+        res.status(200).send(data.toString().substring(5, data.toString().length - 5));
     });
 
     findStatusPyProcess.stderr.on('data', (data) => {

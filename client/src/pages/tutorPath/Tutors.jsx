@@ -29,10 +29,9 @@ export default function Tutors() {
         async function getStatus() {
             if (tutors) {
                 const updatedTutors = await Promise.all(tutors.map(async tutor => {
-                    const tutorUsername = tutor[2].trim().substring(1, tutor[2].length - 1);
+                    const tutorUsername = tutor[3].trim().substring(1, tutor[2].length - 1);
                     const response = await axios.get(`http://localhost:5000/tutors/status/${tutorUsername}`);
-                    console.log(response.data);
-                    const status = response.data.split(', ')[1] === 'online' ? 'offline' : 'online';
+                    const status = response.data.split(", '")[1] === 'online' ? 'online' : 'offline';
                     return { ...tutor, status };
                 }));
                 setTutors(updatedTutors);
@@ -59,7 +58,7 @@ export default function Tutors() {
 
 
                             return (
-                                <div key={index} className="my-5 w-3/6 flex flex-row">
+                                <div key={index} className="my-5 w-3/6 flex flex-row border-b-2 pb-5 border-b-gray-300">
                                     {image && <img src={image} className="px-5 py-5 w-28 h-28"/>}
                                     <div className="w-full">
                                         <div className="flex flex-row w-full items-center py-5 px-5">
