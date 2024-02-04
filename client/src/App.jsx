@@ -11,12 +11,11 @@ import Contact from './pages/Contact';
 function App() {
   return (
     <Router>
+      <NavigationMain />
       <Routes>
-        <Route path="/" element={<NavigationMain />}>
-          <Route index element={<Home />} />
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
-        </Route>
+        <Route path="/" element={<Home/>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path='/tutors' element={<Tutors />}></Route>
         <Route path='/subjects' element={<Subjects />}></Route>
         <Route path='/about' element={<About />}/>
