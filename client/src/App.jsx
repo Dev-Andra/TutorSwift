@@ -22,7 +22,6 @@ function App() {
         <Route path='/subjects' element={<Subjects />}></Route>
         <Route path='/about' element={<About />}/>
         <Route path='/contact' element={<Contact />}/>
-        <Route path='/chats' element={<Chats />} />
         <Route path="/register/verify-email" element={<VerifyEmail />} />
       </Routes>
     </Router>
