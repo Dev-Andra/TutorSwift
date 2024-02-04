@@ -65,6 +65,7 @@ app.get("/tutors/collect", function (req, res, next) {
 
 app.get('/tutors/status/:tutorUsername', function (req, res, next) {
     const tutorUsername = req.params.tutorUsername;
+    console.log(tutorUsername)
 
     const findStatusPyProcess = spawn('python', ['./python-scripts/status.py', 'getStatus', tutorUsername]);
 
