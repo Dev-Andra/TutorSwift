@@ -6,7 +6,7 @@ export default function VerifyEmail() {
     const location = useLocation();
     const navigate = useNavigate();
     const [code, setCode] = useState();
-    const [entered, setEntered] = useState('');
+    const   [entered, setEntered] = useState('');
     const [error, setError] = useState('');
     useEffect(() => {
         async function sendEmail() {
