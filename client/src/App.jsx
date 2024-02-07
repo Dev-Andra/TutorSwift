@@ -7,20 +7,21 @@ import Tutors from './pages/tutorPath/Tutors';
 import Subjects from './pages/subjectPath/Subjects';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import VerifyEmail from './pages/VerifyEmail';
 
 function App() {
   return (
     <Router>
+      <NavigationMain />
       <Routes>
-        <Route path="/" element={<NavigationMain />}>
-          <Route index element={<Home />} />
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
-        </Route>
+        <Route path="/" element={<Home/>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path='/tutors' element={<Tutors />}></Route>
         <Route path='/subjects' element={<Subjects />}></Route>
         <Route path='/about' element={<About />}/>
         <Route path='/contact' element={<Contact />}/>
+        <Route path="/register/verify-email" element={<VerifyEmail />} />
       </Routes>
     </Router>
   )
