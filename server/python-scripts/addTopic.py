@@ -11,4 +11,3 @@ conn.commit()
 def addTopic(topic, budget, name, id):
     cursor.execute("INSERT INTO topics (topic, budget, name, username) VALUES (?, ?, ?, ?)", (topic, budget, name, id, ))
     conn.commit()
-
